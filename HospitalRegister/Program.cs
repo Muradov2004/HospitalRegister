@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Text;
+﻿using System.Text;
 
 class Program
 {
@@ -8,76 +6,10 @@ class Program
     static readonly StomatologyDoctors stomatologyDoctors = new();
     static readonly PediatricDoctors pediatricDoctors = new();
     static Users users = new();
-    static void HospitalRegistrationLogo()
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(@"        _  _ ____ ____ ___  _ ___ ____ _       ____ ____ ____ _ ____ ___ ____ ____ ___ _ ____ _  _");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine(@"        |__| |  | [__  |__] |  |  |__| |       |__/ |___ | __ | [__   |  |__/ |__|  |  | |  | |\ |");
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine(@"        |  | |__| ___] |    |  |  |  | |___    |  \ |___ |__] | ___]  |  |  \ |  |  |  | |__| | \|");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    static void HospitalLoginLogo()
-    {
-
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine(@"        _  _ ____ ____ ___  _ ___ ____ _       _    ____ ____ _ _  _");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine(@"        |__| |  | [__  |__] |  |  |__| |       |    |  | | __ | |\ |");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(@"        |  | |__| ___] |    |  |  |  | |___    |___ |__| |__] | | \|");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-    static void HospitalLogo()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(@"        _  _ ____ ____ ___  _ ___ ____ _   ");
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine(@"        |__| |  | [__  |__] |  |  |__| |   ");
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine(@"        |  | |__| ___] |    |  |  |  | |___");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    static void TraumatologyLogo()
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine(@"        ___ ____ ____ _  _ _  _ ____ ___ ____ _    ____ ____ _   _    ___  ____ ____ ___ ____ ____ ____");
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine(@"         |  |__/ |__| |  | |\/| |__|  |  |  | |    |  | | __  \_/     |  \ |  | |     |  |  | |__/ [__ ");
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine(@"         |  |  \ |  | |__| |  | |  |  |  |__| |___ |__| |__]   |      |__/ |__| |___  |  |__| |  \ ___]");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    static void StomatologyLogo()
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(@"        ____ ___ ____ _  _ ____ ___ ____ _    ____ ____ _   _    ___  ____ ____ ___ ____ ____ ____ ");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine(@"        [__   |  |  | |\/| |__|  |  |  | |    |  | | __  \_/     |  \ |  | |     |  |  | |__/ [__  ");
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine(@"        ___]  |  |__| |  | |  |  |  |__| |___ |__| |__]   |      |__/ |__| |___  |  |__| |  \ ___] ");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    static void PediatricLogo()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(@"        ___  ____ ___  _ ____ ___ ____ _ ____    ___  ____ ____ ___ ____ ____ ____ ");
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine(@"        |__] |___ |  \ | |__|  |  |__/ | |       |  \ |  | |     |  |  | |__/ [__  ");
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine(@"        |    |___ |__/ | |  |  |  |  \ | |___    |__/ |__| |___  |  |__| |  \ ___] ");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
     static void Traumatology(int num = 0)
     {
         Console.Clear();
-        TraumatologyLogo();
+        Logo.TraumatologyLogo();
         int i = 0;
         ConsoleColor color;
         foreach (var doctor in traumatologyDoctors)
@@ -117,11 +49,10 @@ class Program
         }
         else Traumatology(num);
     }
-
     static void Stomatology(int num = 0)
     {
         Console.Clear();
-        StomatologyLogo();
+        Logo.StomatologyLogo();
         int i = 0;
         ConsoleColor color;
         foreach (var doctor in stomatologyDoctors)
@@ -161,11 +92,10 @@ class Program
         }
         else Stomatology(num);
     }
-
     static void Pediatric(int num = 0)
     {
         Console.Clear();
-        PediatricLogo();
+        Logo.PediatricLogo();
         int i = 0;
         ConsoleColor color;
         foreach (var doctor in pediatricDoctors)
@@ -210,7 +140,7 @@ class Program
     public static void MainMenu(int num = 1)
     {
         Console.Clear();
-        HospitalLogo();
+        Logo.HospitalLogo();
         ConsoleColor color;
         _ = num == 1 ? color = ConsoleColor.Green : color = ConsoleColor.White;
         Console.ForegroundColor = color;
@@ -247,7 +177,7 @@ class Program
     {
 
         Console.Clear();
-        HospitalRegistrationLogo();
+        Logo.HospitalRegistrationLogo();
 
         string? name, surname, email, phoneNumber, password;
 
@@ -281,7 +211,7 @@ class Program
     static void Login()
     {
         Console.Clear();
-        HospitalLoginLogo();
+        Logo.HospitalLoginLogo();
         string? email, password;
         Console.Write("Email : ");
         email = Console.ReadLine();
@@ -307,7 +237,7 @@ class Program
     static void LoginRegistrationMenu(ConsoleColor color1 = ConsoleColor.Green, ConsoleColor color2 = ConsoleColor.White)
     {
         Console.Clear();
-        HospitalLogo();
+        Logo.HospitalLogo();
         Console.ForegroundColor = color1;
         Console.WriteLine(color1 == ConsoleColor.Green ? "☑ Registration" : "☐ Registration");
         Console.ForegroundColor = color2;
